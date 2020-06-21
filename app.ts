@@ -6,8 +6,10 @@ function add(n1: number,n2: number):number{
     return n1+n2;
 }
 
-const number1 = 5;
-const number2 = 2.8;
+let number1:number;
+number1 = 5;
+let number2:number 
+number2 = 2.8;
 
 // this solution convert string to number //const result = add(+number1,+number2);
 const result = add(number1,number2);
