@@ -1,15 +1,13 @@
-// Union Type
-function combine(input1, input2) {
-    var result;
-    if (typeof input1 === 'number' && typeof input2 === 'number') {
-        result = +input1 + +input2;
-    }
-    else {
-        result = input1.toString() + input2.toString();
-    }
-    return result;
+//unknown and never
+var userInput;
+var userName;
+userInput = 5;
+userInput = 'Gassan';
+if (typeof userInput === 'string') {
+    userName = userInput;
 }
-var combinedAges = combine(30, 26);
-console.log(combinedAges);
-var combineNames = combine('Gassan ', 'Jabbar');
-console.log(combineNames);
+function genreateError(message, code) {
+    throw { message: message, errorCode: code };
+    //while(true) {}
+}
+var result2 = genreateError('An error occurret!', 500);

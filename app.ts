@@ -1,20 +1,17 @@
-// Union Type
+//unknown and never
+let userInput: unknown;
+let userName: string;
 
-type Combinable = number | string; // type Alias
+userInput = 5;
+userInput = 'Gassan';
+if(typeof userInput === 'string'){
 
-
-function combine(input1: Combinable,input2: Combinable):number{
-    let result;
-    if(typeof input1 === 'number' && typeof input2 === 'number'){
-        result = +input1 + +input2;
-    }else{
-        result= input1.toString() + input2.toString();
-    }
-    return result;
+    userName = userInput;
 }
 
-const combinedAges = combine(30,26);
-console.log(combinedAges);
+function genreateError(message:string,code:number):never{
+    throw {message: message, errorCode: code};
+    //while(true) {}
+}
 
-const combineNames = combine('Gassan ','Jabbar');
-console.log(combineNames)
+const result2 = genreateError('An error occurret!',500);
