@@ -1,3 +1,4 @@
+"use strict";
 //unknown and never
 var userInput;
 var userName;

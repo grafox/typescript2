@@ -1,3 +1,4 @@
+"use strict";
 // Union Type
 function combine(input1, input2) {
     var result;

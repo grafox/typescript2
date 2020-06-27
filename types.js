@@ -1,3 +1,4 @@
+"use strict";
 //const ADMIN=0 // use enum better type
 //const READ_ONLY=1
 //const AUTHOR=2
