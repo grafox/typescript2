@@ -1,14 +1,6 @@
 "use strict";
-//unknown and never
-var userInput;
-var userName;
-userInput = 5;
-userInput = 'Gassan';
-if (typeof userInput === 'string') {
-    userName = userInput;
-}
-function genreateError(message, code) {
-    throw { message: message, errorCode: code };
-    //while(true) {}
-}
-var result2 = genreateError('An error occurret!', 500);
+var button = document.querySelector('button');
+button === null || button === void 0 ? void 0 : button.addEventListener('click', function () {
+    console.log('Clicked');
+});
+//# sourceMappingURL=app.js.map

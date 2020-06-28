@@ -1,17 +1,5 @@
-//unknown and never
-let userInput: unknown;
-let userName: string;
+const button = document.querySelector('button');
 
-userInput = 5;
-userInput = 'Gassan';
-if(typeof userInput === 'string'){
-
-    userName = userInput;
-}
-
-function genreateError(message:string,code:number):never{
-    throw {message: message, errorCode: code};
-    //while(true) {}
-}
-
-const result2 = genreateError('An error occurret!',500);
+button?.addEventListener('click', ()=>{
+    console.log('Clicked');
+})
