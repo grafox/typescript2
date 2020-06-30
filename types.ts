@@ -6,6 +6,7 @@ enum Role {
     READ_ONLY,
     AUTHOR
 };
+
 // object type
 const person:{
     name: string;
