@@ -21,5 +21,5 @@ const person = {
     age: 47
 };
 
-const copiedPerson = {...person} // key value pers
+const copiedPerson = {...person} // key value pers not only point to the object in memory
 console.log(copiedPerson)

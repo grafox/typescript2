@@ -29,6 +29,6 @@ var person = {
     name: 'Gassan',
     age: 47
 };
-var copiedPerson = __assign({}, person); // key value pers
+var copiedPerson = __assign({}, person); // key value pers not only point to the object in memory
 console.log(copiedPerson);
 //# sourceMappingURL=app.js.map
