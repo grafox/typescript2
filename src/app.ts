@@ -22,4 +22,13 @@ const person = {
 };
 
 const copiedPerson = {...person} // key value pers not only point to the object in memory
-console.log(copiedPerson)
+console.log(copiedPerson);
+
+const add2 = (...numbers:number[])=>{     // Rest parameters
+    return numbers.reduce((curResult,curValue)=>{
+        return curResult+curValue;
+    },0);
+};
+
+const addNumbers = add2(5,10,2,3.7);
+console.log(addNumbers);

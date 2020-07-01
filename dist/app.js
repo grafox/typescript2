@@ -31,4 +31,15 @@ var person = {
 };
 var copiedPerson = __assign({}, person); // key value pers not only point to the object in memory
 console.log(copiedPerson);
+var add2 = function () {
+    var numbers = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        numbers[_i] = arguments[_i];
+    }
+    return numbers.reduce(function (curResult, curValue) {
+        return curResult + curValue;
+    }, 0);
+};
+var addNumbers = add2(5, 10, 2, 3.7);
+console.log(addNumbers);
 //# sourceMappingURL=app.js.map
