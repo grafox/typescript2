@@ -9,6 +9,8 @@ if (button) {
 }
 function add(n1, n2) {
     if (n1 + n2 > 0) {
+        return n1 + n2;
     }
+    return;
 }
 //# sourceMappingURL=app.js.map
