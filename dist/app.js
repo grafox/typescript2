@@ -1,16 +1,13 @@
 "use strict";
-var button = document.querySelector('button'); // ! this mean you know the button is null
-function clickHandler(message) {
-    console.log('clicked' + message);
-}
-// or rap with if() statment 
-if (button) {
-    button.addEventListener('click', clickHandler.bind(null, "You\'re welcome!")); // don't use "noImplicitThis": true
-}
-function add(n1, n2) {
-    if (n1 + n2 > 0) {
-        return n1 + n2;
-    }
-    return;
-}
+var add = function (a, b) {
+    if (b === void 0) { b = 1; }
+    return a + b;
+}; // defult param 
+console.log(add(1, 2));
+var printOutput = function (output) { return console.log(output); }; // Arrow function
+var button = document.querySelector('button');
+button === null || button === void 0 ? void 0 : button.addEventListener('click', function (event) {
+    console.log(event);
+});
+printOutput(add(5));
 //# sourceMappingURL=app.js.map
