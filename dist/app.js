@@ -24,13 +24,18 @@ printOutput(add(6));
 var hobbies = ["Sport", "Cooking"];
 var activeHobbies = ['Hiking'];
 activeHobbies.push.apply(activeHobbies, hobbies); // we can't sign string "hobbies" to Array of string. So, we used a Spread oprator
-console.log(activeHobbies);
+console.log.apply(// we can't sign string "hobbies" to Array of string. So, we used a Spread oprator
+console, activeHobbies); // nice
+var hobby1 = hobbies[0], hobby2 = hobbies[1], reamainingHobbies = hobbies.slice(2);
+console.log(hobbies, hobby1, hobby2);
 var person = {
-    name: 'Gassan',
+    firstName: 'Gassan',
     age: 47
 };
 var copiedPerson = __assign({}, person); // key value pers not only point to the object in memory
 console.log(copiedPerson);
+var userName = person.firstName, age = person.age;
+console.log(userName, age);
 var add2 = function () {
     var numbers = [];
     for (var _i = 0; _i < arguments.length; _i++) {
