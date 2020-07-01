@@ -10,4 +10,16 @@ button?.addEventListener('click',event=>{
     console.log(event)
 })
 
-printOutput(add(5));
+printOutput(add(6));
+const hobbies = ["Sport","Cooking"];
+const activeHobbies =['Hiking'];
+activeHobbies.push(...hobbies) // we can't sign string "hobbies" to Array of string. So, we used a Spread oprator
+console.log(activeHobbies)
+
+const person = {
+    name: 'Gassan',
+    age: 47
+};
+
+const copiedPerson = {...person} // key value pers
+console.log(copiedPerson)
