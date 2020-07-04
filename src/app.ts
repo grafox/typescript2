@@ -1,11 +1,12 @@
 class Department{
-    name:string
-    employees:string[]=[]
-    constructor(n:string){
-        this.name= n
+    //private id:string
+    //private name:string
+    private employees:string[]=[]
+    constructor(private id:string,public name:string){
+        //this.name= n
     }
     describe(){
-        console.log(`Department: ${this.name}`)
+        console.log(`Department: ${this.id} ${this.name}`)
     }
     addEployee(employee:string){
         this.employees.push(employee)
@@ -16,11 +17,14 @@ class Department{
     }
 }
 
-const accounting = new Department('Accounting');
+const accounting = new Department('1','Accounting');
 accounting.describe()
 
 /* const accountingCopy = {name:'dummy',describe: accounting.describe}
 accountingCopy.describe();
  */
-
- 
+accounting.addEployee('Gassan')
+accounting.addEployee('Maha')
+//accounting.employees[1]='Dana'
+accounting.describe()
+accounting.printEmployeeInformation()
