@@ -20,13 +20,20 @@ class Department {
     }
 }
 class ITDepartment extends Department {
-    constructor(id, admins) {
-        super(id, 'IT'); // if you used constructor in extended class you have to use super
+    constructor(id, admins, report) {
+        super(id, 'IT'); // if you used constructor in extended class you have to use
         this.admins = admins;
+        this.report = report;
+    }
+    addReport() {
+        this.report.push();
+    }
+    printReport() {
+        console.log(this.report);
     }
 }
-const accounting = new Department('D1', 'Accounting');
-const it = new ITDepartment('d1', ['Gassan']);
+const accounting = new Department('d1', 'Accounting');
+const it = new ITDepartment('d1', ['Gassan'], []);
 accounting.describe();
 /* const accountingCopy = {name:'dummy',describe: accounting.describe}
 accountingCopy.describe();

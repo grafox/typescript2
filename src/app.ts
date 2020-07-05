@@ -18,13 +18,19 @@ class Department{
 }
 
 class ITDepartment extends Department{
-    constructor(id:string, public admins:string[]){
-        super(id,'IT');  // if you used constructor in extended class you have to use super
+    constructor(id:string, public admins:string[], private report:string[]){
+        super(id,'IT');  // if you used constructor in extended class you have to use
         
     }
+    addReport(){
+        this.report.push()
+    }
+    printReport(){
+        console.log(this.report)
+    }
 }
-const accounting = new Department('D1','Accounting');
-const it = new ITDepartment('d1',['Gassan'])
+const accounting = new Department('d1','Accounting');
+const it = new ITDepartment('d1',['Gassan'],[])
 accounting.describe()
 
 /* const accountingCopy = {name:'dummy',describe: accounting.describe}
