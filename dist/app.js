@@ -24,7 +24,7 @@ printEmployeeInformation(e1);
 printEmployeeInformation({ name: 'Gassan', startDate: new Date });
 class Car {
     drive() {
-        console.log('driveing ...');
+        console.log('driving ...');
     }
 }
 class Truck {
@@ -44,4 +44,17 @@ function useVehicle(vehicle) {
         vehicle.loadCargo('1000');
     }
 }
+useVehicle(v1);
+useVehicle(v2);
+function moveAnimal(animal) {
+    let speed;
+    switch (animal.type) {
+        case 'bird':
+            speed = animal.flyingSpeed;
+            break;
+        case 'horse': speed = animal.runningSpeed;
+    }
+    console.log(`${animal.type} Moving at speed:  ${speed}`);
+}
+moveAnimal({ type: 'bird', flyingSpeed: 10 });
 //# sourceMappingURL=app.js.map

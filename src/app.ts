@@ -51,7 +51,7 @@ printEmployeeInformation({name:'Gassan',startDate: new Date})
 
 class Car{
     drive(){
-        console.log('driveing ...');
+        console.log('driving ...');
         
     }
     
@@ -78,3 +78,28 @@ function useVehicle(vehicle:Vehicle){
         vehicle.loadCargo('1000')
     }
 }
+
+useVehicle(v1)
+useVehicle(v2)
+/// Discriminated Unions
+interface Bird {
+    type:'bird'
+    flyingSpeed:number
+}
+interface Horse{
+    type:'horse'
+    runningSpeed:number
+}
+
+type Animal = Bird | Horse
+
+function moveAnimal(animal:Animal){ 
+    let speed:number
+    switch (animal.type){
+        case 'bird':  speed = animal.flyingSpeed
+        break
+        case 'horse': speed = animal.runningSpeed
+    }    
+    console.log(`${animal.type} Moving at speed:  ${speed}`);
+}
+moveAnimal({type:'bird',flyingSpeed:10})
