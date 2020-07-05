@@ -1,41 +1,29 @@
-interface Greeting {
-    greet(phrase:string):void
-}
-interface Person extends Greeting{
+type Admin ={
     name:string
-    age:number,  
+    privileges:string[]
 }
-interface Named{
-    readonly name?:string  //optional
-} 
-let user1: Person;
+type Employee={
+    name:string
+    startDate:Date
+}
+type ElevatedEmployee = Admin&Employee //compine two types
+interface Admin2 {
+    name:string
+    privileges:string[]
+}
+interface Employee2{
+    name:string
+    startDate:Date
+}
+interface ElevatedEmployee2 extends Admin,Employee{} //compine two interface
 
-user1 = {
+const e1:ElevatedEmployee={
     name:'Gassan',
-    age: 47,
-    greet(phrase:string){
-        console.log(phrase + ''+this.name);
-        
-    }
-}
-type Addfn = (a:number,b:number)=>number
-
-interface Addfunction {
-    (a:number,b:number):number
+    privileges:['Create-server'],
+    startDate: new Date()
 }
 
-let add:Addfn
+type Combinable = string | number
+type Numeric = number | boolean
 
-class thePerson implements Greeting,Named{  // multi interface
-    name:string | undefined
-
-    constructor(n?:string,){ // optainal
-        if(n){
-            this.name = n
-        }
-    }
-    greet(phrase:string){
-        console.log(`${phrase}${name}`);
-        
-    }
-} 
+type Universal = Combinable&Numeric
