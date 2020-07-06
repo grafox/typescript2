@@ -1,4 +1,5 @@
 "use strict";
+var _a;
 const e1 = {
     name: 'Gassan',
     privileges: ['Create-server'],
@@ -10,6 +11,17 @@ function add(a, b) {
     }
     return a + b;
 }
+const result = add('Gassan', 'Jabbar');
+result.split('');
+const fetchUserData = {
+    id: 1,
+    name: 'Gassan',
+    job: { title: 'CEO', description: 'My own company' }
+};
+console.log((_a = fetchUserData === null || fetchUserData === void 0 ? void 0 : fetchUserData.job) === null || _a === void 0 ? void 0 : _a.title);
+const userInput = null;
+const storeData = userInput !== null && userInput !== void 0 ? userInput : 'DEFAULT'; //Nullish 
+console.log(storeData);
 function printEmployeeInformation(emp) {
     console.log(`Name: ${emp.name}`);
     if ('privileges' in emp) {
