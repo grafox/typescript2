@@ -103,3 +103,22 @@ function moveAnimal(animal:Animal){
     console.log(`${animal.type} Moving at speed:  ${speed}`);
 }
 moveAnimal({type:'bird',flyingSpeed:10})
+
+const paragraph = document.querySelector('p')
+const userInputElement = <HTMLInputElement>document.getElementById('user-input')!
+// or
+// const userInputElement = document.getElementById('user-input')! as HTMLInputElement
+//userInputElement.value = 'Hi there!'
+// or
+if(userInputElement){
+    (userInputElement as HTMLInputElement).value = 'Hi there'
+}
+
+interface ErrorContainer{
+    // {email:'Not a valid email',username:'Must start'}
+    [prop:string]:string  // index type
+}
+const errorBag:ErrorContainer = {
+    email:'Not a valid email!',
+    username:'Must start with a capital character!'
+}

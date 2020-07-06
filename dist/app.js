@@ -57,4 +57,17 @@ function moveAnimal(animal) {
     console.log(`${animal.type} Moving at speed:  ${speed}`);
 }
 moveAnimal({ type: 'bird', flyingSpeed: 10 });
+const paragraph = document.querySelector('p');
+const userInputElement = document.getElementById('user-input');
+// or
+// const userInputElement = document.getElementById('user-input')! as HTMLInputElement
+//userInputElement.value = 'Hi there!'
+// or
+if (userInputElement) {
+    userInputElement.value = 'Hi there';
+}
+const errorBag = {
+    email: 'Not a valid email!',
+    username: 'Must start with a capital character!'
+};
 //# sourceMappingURL=app.js.map
