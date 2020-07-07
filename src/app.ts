@@ -40,3 +40,27 @@ function extraactAndConvert<T extends object,U extends keyof T>(obj:T,key:U){
 
 extraactAndConvert({name:'Gassan'},'name')
 
+class dataSorage<T> {
+    private data:T[]=[]
+    addItem(item:T){
+        this.data.push(item)
+    }
+    removeItem(item:T){
+        this.data.splice(this.data.indexOf(item),1) //-1
+    }
+    getItem(){
+        return [...this.data]
+    }
+}
+
+const textStorage = new dataSorage<string>()
+textStorage.addItem('Gassan')
+textStorage.addItem('Maha')
+textStorage.addItem('Aboud')
+console.log(textStorage.getItem());
+
+const objStorage = new dataSorage<object>()
+objStorage.addItem({name:'Gassan'})
+objStorage.addItem({name:'Maha'})
+
+console.log(objStorage.getItem());

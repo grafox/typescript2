@@ -30,4 +30,27 @@ function extraactAndConvert(obj, key) {
     return 'Value' + obj[key];
 }
 extraactAndConvert({ name: 'Gassan' }, 'name');
+class dataSorage {
+    constructor() {
+        this.data = [];
+    }
+    addItem(item) {
+        this.data.push(item);
+    }
+    removeItem(item) {
+        this.data.splice(this.data.indexOf(item), 1); //-1
+    }
+    getItem() {
+        return [...this.data];
+    }
+}
+const textStorage = new dataSorage();
+textStorage.addItem('Gassan');
+textStorage.addItem('Maha');
+textStorage.addItem('Aboud');
+console.log(textStorage.getItem());
+const objStorage = new dataSorage();
+objStorage.addItem({ name: 'Gassan' });
+objStorage.addItem({ name: 'Maha' });
+console.log(objStorage.getItem());
 //# sourceMappingURL=app.js.map
