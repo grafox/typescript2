@@ -1,8 +1,9 @@
 const names:Array<string> = [] // string[]
-// names[0].split('')
-const promise= new Promise<number>((resolve)=>{
+ //names[].split(" ")
+
+const promise: Promise<string>= new Promise((resolve,_reject)=>{
     setTimeout(()=>{
-        return resolve
+         return resolve('I am Done')
     },2000)
 })
 
@@ -15,6 +16,6 @@ function merge<T,U>(objA:T,objB:U){
 }
 
 const mergedObj = merge({name:'Gassan'},{age:30})
-console.log(mergedObj.age);
+console.log(mergedObj.name, mergedObj.age );
 
 
