@@ -40,7 +40,7 @@ function extraactAndConvert<T extends object,U extends keyof T>(obj:T,key:U){
 
 extraactAndConvert({name:'Gassan'},'name')
 
-class dataSorage<T> {
+class dataSorage<T> {   // Generic Class
     private data:T[]=[]
     addItem(item:T){
         this.data.push(item)
@@ -64,3 +64,24 @@ objStorage.addItem({name:'Gassan'})
 objStorage.addItem({name:'Maha'})
 
 console.log(objStorage.getItem());
+
+interface CourseGoal{
+    title:string
+    description:string
+    completeUnit:Date
+}
+
+function creatCourseGoal(   // Generic utlity type
+    title:string, 
+    description:string,
+    completeUnit:Date
+):CourseGoal{
+    let courseGoal:Partial<CourseGoal>= {} //
+    courseGoal.title = title
+    courseGoal.description = description
+    courseGoal.completeUnit = completeUnit
+    return courseGoal as CourseGoal
+}
+
+const newNames: Readonly<string[]>=['Gassan','Maha']
+

@@ -53,4 +53,13 @@ const objStorage = new dataSorage();
 objStorage.addItem({ name: 'Gassan' });
 objStorage.addItem({ name: 'Maha' });
 console.log(objStorage.getItem());
+function creatCourseGoal(// Generic utlity type
+title, description, completeUnit) {
+    let courseGoal = {}; //
+    courseGoal.title = title;
+    courseGoal.description = description;
+    courseGoal.completeUnit = completeUnit;
+    return courseGoal;
+}
+const newNames = ['Gassan', 'Maha'];
 //# sourceMappingURL=app.js.map
