@@ -4,8 +4,13 @@ class ProjectInput{
     element: HTMLFormElement
 
     constructor(){
-        this.templateElement = <HTMLTemplateElement>document.getElementById('project-input')!
-        this.hostElement = <HTMLDivElement>document.getElementById('app')!
+       // this.templateElement = <HTMLTemplateElement>document.getElementById('project-input')!
+       // OR
+        this.templateElement = document.getElementById('project-input')! as HTMLTemplateElement
+       
+      //  this.hostElement = <HTMLDivElement>document.getElementById('app')!
+      // OR
+        this.hostElement = document.getElementById('app')! as HTMLDivElement
 
         const importedNode = document.importNode(this.templateElement.content,true)
         this.element = importedNode.firstElementChild as HTMLFormElement

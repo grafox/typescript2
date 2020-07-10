@@ -1,7 +1,11 @@
 "use strict";
 class ProjectInput {
     constructor() {
+        // this.templateElement = <HTMLTemplateElement>document.getElementById('project-input')!
+        // OR
         this.templateElement = document.getElementById('project-input');
+        //  this.hostElement = <HTMLDivElement>document.getElementById('app')!
+        // OR
         this.hostElement = document.getElementById('app');
         const importedNode = document.importNode(this.templateElement.content, true);
         this.element = importedNode.firstElementChild;
