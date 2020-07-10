@@ -1,4 +1,26 @@
 "use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+// autobind decorator
+function autobind(_target, _methodName, descriptor) {
+    const originalMethod = descriptor.value;
+    const adjDescriptor = {
+        configurable: true,
+        get() {
+            const boundFn = originalMethod.bind(this);
+            return boundFn;
+        }
+    };
+    return adjDescriptor;
+}
+// ProjectInput Class
 class ProjectInput {
     constructor() {
         // this.templateElement = <HTMLTemplateElement>document.getElementById('project-input')!
@@ -26,8 +48,15 @@ class ProjectInput {
         console.log((_a = this.titleInput) === null || _a === void 0 ? void 0 : _a.value);
     }
     configure() {
-        this.element.addEventListener('submit', this.submitHandler.bind(this));
+        //   this.element.addEventListener('submit',this.submitHandler.bind(this))  // first solution
+        this.element.addEventListener('submit', this.submitHandler); // second solution with decorator
     }
 }
+__decorate([
+    autobind,
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Event]),
+    __metadata("design:returntype", void 0)
+], ProjectInput.prototype, "submitHandler", null);
 const projInput = new ProjectInput();
 //# sourceMappingURL=app.js.map
