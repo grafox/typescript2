@@ -47,12 +47,33 @@ class ProjectInput{
     private attach(){
         this.hostElement?.insertAdjacentElement('afterbegin',this.element)
     }
+    private gatherUserInput():[string,string,number]|void{
+        const enterdTitle = this.titleInput?.value
+        const enterdDescription = this.descriptionInput?.value
+        const enterdPeople = this.peopleInput?.value
+        if(
+            enterdTitle?.trim().length === 0||
+            enterdDescription?.trim().length === 0 ||
+            enterdPeople?.trim().length ===0
+        ){
+            alert('Invalid input, please try again')
+            return
+        }else{
+            return //[enterdTitle!,enterdDescription!,enterdPeople?]
+        }
+    }
+
     @autobind
     private submitHandler(event:Event){
         event.preventDefault()
         console.log(this.titleInput?.value);
-        
+        const userInput = this.gatherUserInput()
+        if(Array.isArray(userInput)){
+            const [title,desc,people] = userInput
+            console.log(title,desc,people);
+        }
     }
+
     private configure(){
      //   this.element.addEventListener('submit',this.submitHandler.bind(this))  // first solution
      this.element.addEventListener('submit',this.submitHandler)  // second solution with decorator
