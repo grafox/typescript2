@@ -32,9 +32,9 @@ class ProjectInput {
         const importedNode = document.importNode(this.templateElement.content, true);
         this.element = importedNode.firstElementChild;
         this.element.id = 'user-input';
-        this.titleInput = this.element.querySelector('#title'); // as HTMLInputElement
-        this.descriptionInput = this.element.querySelector('#description'); // as HTMLInputElement
-        this.peopleInput = this.element.querySelector('#peopleInput'); // as HTMLInputElement
+        this.titleInput = this.element.querySelector('#title');
+        this.descriptionInput = this.element.querySelector('#description');
+        this.peopleInput = this.element.querySelector('#people');
         this.attach();
         this.configure();
     }
@@ -43,24 +43,22 @@ class ProjectInput {
         (_a = this.hostElement) === null || _a === void 0 ? void 0 : _a.insertAdjacentElement('afterbegin', this.element);
     }
     gatherUserInput() {
-        var _a, _b, _c;
-        const enterdTitle = (_a = this.titleInput) === null || _a === void 0 ? void 0 : _a.value;
-        const enterdDescription = (_b = this.descriptionInput) === null || _b === void 0 ? void 0 : _b.value;
-        const enterdPeople = (_c = this.peopleInput) === null || _c === void 0 ? void 0 : _c.value;
-        if ((enterdTitle === null || enterdTitle === void 0 ? void 0 : enterdTitle.trim().length) === 0 ||
-            (enterdDescription === null || enterdDescription === void 0 ? void 0 : enterdDescription.trim().length) === 0 ||
-            (enterdPeople === null || enterdPeople === void 0 ? void 0 : enterdPeople.trim().length) === 0) {
+        const enterdTitle = this.titleInput.value;
+        const enterdDescription = this.descriptionInput.value;
+        const enterdPeople = this.peopleInput.value;
+        if (enterdTitle.trim().length === 0 ||
+            enterdDescription.trim().length === 0 ||
+            enterdPeople.trim().length === 0) {
             alert('Invalid input, please try again');
             return;
         }
         else {
-            return; //[enterdTitle!,enterdDescription!,enterdPeople?]
+            return [enterdTitle, enterdDescription, +enterdPeople];
         }
     }
     submitHandler(event) {
-        var _a;
         event.preventDefault();
-        console.log((_a = this.titleInput) === null || _a === void 0 ? void 0 : _a.value);
+        console.log(this.titleInput.value);
         const userInput = this.gatherUserInput();
         if (Array.isArray(userInput)) {
             const [title, desc, people] = userInput;
