@@ -8,6 +8,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+function Validate(validatableInput) {
+    let isValid = true;
+    if (validatableInput.required) {
+        isValid = isValid &&
+            validatableInput.value.toString().trim().length !== 0;
+    }
+    if (validatableInput.minLength != null &&
+        typeof validatableInput.value === 'string') {
+        isValid = isValid &&
+            validatableInput.value.length >= validatableInput.minLength;
+    }
+    if (validatableInput.min != null &&
+        typeof validatableInput.value === 'number') {
+        isValid = isValid &&
+            validatableInput.value >= validatableInput.min;
+    }
+    if (validatableInput.max != null &&
+        typeof validatableInput.value === 'number') {
+        isValid = isValid &&
+            validatableInput.value <= validatableInput.max;
+    }
+    return isValid;
+}
 // autobind decorator
 function autobind(_target, _methodName, descriptor) {
     const originalMethod = descriptor.value;
@@ -49,12 +72,17 @@ class ProjectInput {
         if (enterdTitle.trim().length === 0 ||
             enterdDescription.trim().length === 0 ||
             enterdPeople.trim().length === 0) {
-            alert('Invalid input, please try again');
-            return;
+            // alert('Invalid input, please try again')
+            throw console.error('Invalid input, please try again');
         }
         else {
             return [enterdTitle, enterdDescription, +enterdPeople];
         }
+    }
+    clearInput() {
+        this.titleInput.value = '';
+        this.descriptionInput.value = '';
+        this.peopleInput.value = '';
     }
     submitHandler(event) {
         event.preventDefault();
@@ -63,6 +91,7 @@ class ProjectInput {
         if (Array.isArray(userInput)) {
             const [title, desc, people] = userInput;
             console.log(title, desc, people);
+            this.clearInput();
         }
     }
     configure() {

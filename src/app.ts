@@ -1,3 +1,38 @@
+interface Validatable{
+    value:string | number
+    required?: boolean
+    minLength?:number
+    maxLength?:number
+    min?:number
+    max?:number
+}
+function Validate(validatableInput:Validatable){
+    let isValid = true
+    if(validatableInput.required){
+        isValid = isValid && 
+        validatableInput.value.toString().trim().length !==0
+    } 
+    if(validatableInput.minLength !=null && 
+        typeof validatableInput.value === 'string'){
+        isValid = isValid && 
+        validatableInput.value.length>=validatableInput.minLength   
+    }
+    if(validatableInput.min != null && 
+        typeof validatableInput.value === 'number'){
+        isValid = isValid && 
+        validatableInput.value >= validatableInput.min
+    }
+    if (
+        validatableInput.max != null &&
+        typeof validatableInput.value === 'number'
+      ) {
+        isValid = isValid && 
+        validatableInput.value <= validatableInput.max;
+      }
+    return isValid
+}
+
+
 // autobind decorator
 function autobind(
     _target:any,
@@ -40,14 +75,13 @@ class ProjectInput{
         this.titleInput = this.element.querySelector('#title')  as HTMLInputElement
         this.descriptionInput = this.element.querySelector('#description') as HTMLInputElement
         this.peopleInput = this.element.querySelector('#people') as HTMLInputElement
-        
         this.attach()
         this.configure()
     }
     private attach(){
         this.hostElement?.insertAdjacentElement('afterbegin',this.element)
     }
-    private gatherUserInput():[string,string,number]|void{
+    private gatherUserInput():[string,string,number]{
         const enterdTitle = this.titleInput.value
         const enterdDescription = this.descriptionInput.value
         const enterdPeople = this.peopleInput.value
@@ -56,11 +90,17 @@ class ProjectInput{
             enterdDescription!.trim().length === 0 ||
             enterdPeople!.trim().length ===0
         ){
-            alert('Invalid input, please try again')
-            return
+           // alert('Invalid input, please try again')
+            throw console.error('Invalid input, please try again');
+            
         }else{
             return [enterdTitle,enterdDescription,+enterdPeople]
         }
+    }
+    private clearInput(){
+        this.titleInput.value=''
+        this.descriptionInput.value=''
+        this.peopleInput.value=''
     }
 
     @autobind
@@ -71,6 +111,7 @@ class ProjectInput{
         if(Array.isArray(userInput)){
             const [title,desc,people] = userInput
             console.log(title,desc,people);
+            this.clearInput()
         }
     }
 
