@@ -108,7 +108,7 @@ abstract class Component<T extends HTMLElement, U extends HTMLElement> {
         templateId:string,
         hostElementId:string,
         insertAtStart:boolean,
-        newElementId:string
+        newElementId?:string
     ){
         this.templateElement = document.getElementById(
             templateId
