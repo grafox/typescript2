@@ -27,9 +27,16 @@
     "noEmitOnError": true,
 
     /* Strict Type-Checking Options */
+<<<<<<< HEAD
     "strict": true /* Enable all strict type-checking options. */,
     // "noImplicitAny": false,                 /* Raise error on expressions and declarations with an implied 'any' type. */
     // "strictNullChecks": true,              /* Enable strict null checks. */
+=======
+    
+    "strict": true,                           /* Enable all strict type-checking options. */
+    //"noImplicitAny": true,                   /* Raise error on expressions and declarations with an implied 'any' type. */
+    //"strictNullChecks": true,                /* Enable strict null checks. */
+>>>>>>> 1531383872a828f6ab3e5a1f736eab0a561403db
     // "strictFunctionTypes": true,           /* Enable strict checking of function types. */
     // "strictBindCallApply": true,           /* Enable strict 'bind', 'call', and 'apply' methods on functions. */
     // "strictPropertyInitialization": true,  /* Enable strict checking of property initialization in classes. */
